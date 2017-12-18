@@ -15,6 +15,7 @@ h1 {
   display: inline;
   font-family: Futura;
   margin: 10px;
+  color: #1c201a;
 }
 .sign-container{
   display: grid;
