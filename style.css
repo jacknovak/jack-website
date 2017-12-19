@@ -88,6 +88,8 @@ body{
   }
   .sign-container{
     grid-template-rows: 20em auto;
+    overflow-x: hidden;
+
   }
 }
 
