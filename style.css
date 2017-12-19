@@ -97,8 +97,9 @@ body{
   }
 }
 
-@media only screen and (max-height: 641px) {
-  #social-bar {
-    display: none;
+@media only screen and (max-height: 800px) {
+  #social-container {
+    width 80%;
+    top: 20px;
   }
 }
