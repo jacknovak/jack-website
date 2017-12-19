@@ -16,7 +16,6 @@ h1 {
   margin: 10px;
   color: #1c201a;
   z-index: 10;
-  width:100%;
 }
 .sign-container{
   display: grid;
@@ -73,17 +72,22 @@ width: 100%;
 body{
   background-color: #1c201a;
   margin: 0px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 800px) {
   h1 {
-    display: block;
+    display: inline-block;
+    width: 100%;
   }
   .sign-text{
     font-size: 2em;
+    transform: rotate3d(0, 0, 0, 0deg);
+    overflow : auto;
   }
   .sign-container{
-    grid-template-rows: 22em auto;
+    grid-template-rows: 20em auto;
   }
 }
 
