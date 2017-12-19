@@ -84,7 +84,7 @@ body{
   .sign-text{
     font-size: 2em;
     transform: rotate3d(0, 0, 0, 0deg);
-    overflow : auto;
+    overflow-x: hidden;
   }
   .sign-container{
     grid-template-rows: 20em auto;
