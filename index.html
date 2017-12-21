@@ -9,12 +9,17 @@
 <meta name="viewport" content="width=device-width" initial-scale=1.0>
 </head>
 <body>
-<video playsinline muted autoplay loop id="video-background" muted plays-inline>
-<source src="Media/C0033_1_1.mp4" type="video/mp4">
+<video playsinline muted autoplay loop id="video-background" usemap="#map_id" muted plays-inline>
+<source src="Media/video-bg.mp4" type="video/mp4">
 </video>
+<img src="Media/map.png" usemap="#map_id" id="video-background">
 
 
+<map id="map_id" name="map">
+<area shape="rect" coords="0,0,82,126" href="#">
+</map>
 
+<!--
     <div class="sign-container">
     <div class="sign-text">
 
@@ -32,8 +37,8 @@
       </a>
     </div>
   </div>
-
-
+-->
+<!--
 <div id="social-container">
 <div id="social-bar">
   <a href="https://itunes.apple.com/us/artist/jack-novak/834398965" target="_blank">
@@ -56,5 +61,6 @@
   </a>
 </div>
 </div>
+-->
 </body>
 </html>
