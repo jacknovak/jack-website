@@ -10,61 +10,54 @@
 </head>
 <body>
 
-<video playsinline muted autoplay loop id="video-background">
-<source src="Media/video-bg.mp4" type="video/mp4">
-</video>
-<img id="image-background" src="Media/map2.png" usemap="#map">
+<img id="image-background" src="Media/bg-image2.gif" usemap="#map">
 
-<map name="map">
-<area shape="rect" coords="450,200,650,300" href="#">
+<map id="map_ID" name="map">
+<area shape="rect" coords="600,300,900,500" href="http://www.bandsintown.com/JackNovak">
+<area shape="rect" coords="600,501,900,701" href="https://ijacknovak.tumblr.com/">
+<area shape="rect" coords="1050,300,1350,500" href="#1">
+<area shape="rect" coords="1040,501,1420,701" href="#2">
+<!-- social-bar -->
+<area shape="rect" coords="775,950,920,1150" target="_blank" href="https://itunes.apple.com/us/artist/jack-novak/834398965">
+<area shape="rect" coords="922,950,978,1150" target="_blank" href="https://open.spotify.com/artist/4X5vI99vwAZqt7YXhElP1y">
+<area shape="rect" coords="980,950,1060,1150" target="_blank" href="https://www.youtube.com/channel/UCx1C4DSces0mC-OZqO3W_Rw">
+<area shape="rect" coords="1062,950,1126,1150" target="_blank" href="http://twitter.com/iamjacknovak">
+<area shape="rect" coords="1128,950,1186,1150" target="_blank" href="http://instagram.com/iamjacknovak">
+<area shape="rect" coords="1188,950,1249,1150" target="_blank" href="http://facebook.com/iamjacknovak">
 </map>
 
+<script>
+window.onload = function () {
+    var ImageMap = function (map, img) {
+            var n,
+                areas = map.getElementsByTagName('area'),
+                len = areas.length,
+                coords = [],
+                previousWidth = 1920;
+            for (n = 0; n < len; n++) {
+                coords[n] = areas[n].coords.split(',');
+            }
+            this.resize = function () {
+                var n, m, clen,
+                    x = img.offsetWidth / previousWidth;
+                for (n = 0; n < len; n++) {
+                    clen = coords[n].length;
+                    for (m = 0; m < clen; m++) {
+                        coords[n][m] *= x;
+                    }
+                    areas[n].coords = coords[n].join(',');
+                }
+                previousWidth = document.body.clientWidth;
+                return true;
+            };
+            window.onresize = this.resize;
+        },
+        imageMap = new ImageMap(document.getElementById('map_ID'), document.getElementById('image-background'));
+    imageMap.resize();
+    return;
+}
+</script>
 
 
-
-
-<!--
-    <div class="sign-container">
-    <div class="sign-text">
-
-      <a href="http://www.bandsintown.com/JackNovak">
-        <h1>TOUR</h1>
-      </a>
-      <a href="#">
-        <h1>SHOP</h1>
-      </a>
-      <a href="https://ijacknovak.tumblr.com/">
-        <h1>BLOG</h1>
-      </a>
-      <a href="#">
-        <h1>CONTACT</h1>
-      </a>
-    </div>
-  </div>
--->
-<!--
-<div id="social-container">
-<div id="social-bar">
-  <a href="https://itunes.apple.com/us/artist/jack-novak/834398965" target="_blank">
-    <img id="apple-music" src="Media/apple-music.png" alt="Apple Music">
-  </a>
-  <a href="https://open.spotify.com/artist/4X5vI99vwAZqt7YXhElP1y" target="_blank">
-    <i class="style-icon fa fa-spotify fa-3x"></i>
-  </a>
-  <a href="https://www.youtube.com/channel/UCx1C4DSces0mC-OZqO3W_Rw" target="_blank">
-    <i class="style-icon fa fa-youtube-play fa-3x"></i>
-  </a>
-  <a href="http://twitter.com/iamjacknovak" target="_blank">
-    <i class="style-icon fa fa-twitter-square fa-3x"></i>
-  </a>
-  <a href="https://www.instagram.com/iamjacknovak/" target="_blank">
-    <i class="style-icon fa fa-instagram fa-3x"></i>
-  </a>
-  <a href="https://www.facebook.com/iamjacknovak" target="_blank">
-    <i class="style-icon fa fa-facebook-square fa-3x"></i>
-  </a>
-</div>
-</div>
--->
 </body>
 </html>
