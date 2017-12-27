@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jack Page</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="Media/icon.jpg">
+<meta name="viewport" content="width=device-width" initial-scale=1.0>
+</head>
+<body>
+
+<img id="image-background" src="Media/bg-image2.gif" usemap="#map">
+
+<map id="map_ID" name="map">
+<area shape="rect" coords="600,300,900,500" href="http://www.bandsintown.com/JackNovak">
+<area shape="rect" coords="600,501,900,701" href="https://ijacknovak.tumblr.com/">
+<area shape="rect" coords="1050,300,1350,500" href="#1">
+<area shape="rect" coords="1040,501,1420,701" href="#2">
+<!-- social-bar -->
+<area shape="rect" coords="775,950,920,1150" target="_blank" href="https://itunes.apple.com/us/artist/jack-novak/834398965">
+<area shape="rect" coords="922,950,978,1150" target="_blank" href="https://open.spotify.com/artist/4X5vI99vwAZqt7YXhElP1y">
+<area shape="rect" coords="980,950,1060,1150" target="_blank" href="https://www.youtube.com/channel/UCx1C4DSces0mC-OZqO3W_Rw">
+<area shape="rect" coords="1062,950,1126,1150" target="_blank" href="http://twitter.com/iamjacknovak">
+<area shape="rect" coords="1128,950,1186,1150" target="_blank" href="http://instagram.com/iamjacknovak">
+<area shape="rect" coords="1188,950,1249,1150" target="_blank" href="http://facebook.com/iamjacknovak">
+</map>
+
+<script>
+window.onload = function () {
+    var ImageMap = function (map, img) {
+            var n,
+                areas = map.getElementsByTagName('area'),
+                len = areas.length,
+                coords = [],
+                previousWidth = 1920;
+            for (n = 0; n < len; n++) {
+                coords[n] = areas[n].coords.split(',');
+            }
+            this.resize = function () {
+                var n, m, clen,
+                    x = img.offsetWidth / previousWidth;
+                for (n = 0; n < len; n++) {
+                    clen = coords[n].length;
+                    for (m = 0; m < clen; m++) {
+                        coords[n][m] *= x;
+                    }
+                    areas[n].coords = coords[n].join(',');
+                }
+                previousWidth = document.body.clientWidth;
+                return true;
+            };
+            window.onresize = this.resize;
+        },
+        imageMap = new ImageMap(document.getElementById('map_ID'), document.getElementById('image-background'));
+    imageMap.resize();
+    return;
+}
+</script>
+
+
+</body>
+</html>
